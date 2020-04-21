@@ -1,0 +1,100 @@
+
+/*
+
+theme text color: #595A6A
+
+
+
+
+
+*/
+
+
+
+/*FOR BOOTSTRAP*/
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+
+.text-color {
+	color: #595A6A !important;
+}
+
+.light-text-color {
+	color: #757B7D;
+}
+
+input {
+	color: #595A6A !important;
+}
+
+
+.page-sidebar-menu-closed li .menu-logo{
+	display: none;
+}
+
+
+#welcome-top{
+	color: #595A6A;
+}
+
+#welcome-dropdown{
+	color: #595A6A;
+}
+
+
+.editable-inputs{
+	border: none;
+}
+
+.non-editable{
+	
+}
+
+.fa-lightbulb-o {
+	-ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+/* Large Screen */
+@media (min-width: 992px){
+
+#welcome-top{
+	display: inline-block;
+}
+
+#welcome-dropdown{
+	display: none;
+}
+
+}
+
+@media (max-width: 992px){
+
+/* can change depending whether we want it or nahhh */
+.page-sidebar-menu li .menu-logo{
+	display: none;
+}
+
+}
+
+
+
+@media (min-width: 768px; max-width: 992px){
+
+
+
+}
+
+/* xs screen */
+@media (max-width: 768px){
+
+#welcome-top{
+	display: none;
+}
+
+#welcome-dropdown{
+	display: inline-block;
+}
+
+}

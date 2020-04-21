@@ -1,0 +1,25 @@
+#	route.txt
+#	GoAhead routing configuration file for LumiGrow UI WebServer
+
+#   Secure all traffic
+route uri=/ protocol=http redirect=*@https handler=redirect
+
+#	For WebApi interface
+route uri=/api handler=action
+
+#	Disable put & delete requests
+route uri=/ methods=PUT|DELETE redirect=@/notsupported.html handler=file
+
+#   Standard routes
+route uri=/cgi-bin dir=cgi-bin handler=cgi
+route uri=/action handler=action
+route uri=/ extensions=jst handler=jst
+route uri=/ methods=OPTIONS|TRACE handler=options
+
+#   For legacy GoAhead applications using /goform, doesn't apply to SmartPAR
+#route uri=/goform handler=action
+
+#   Catch-all route without authentication for all other URIs
+route uri=/
+
+#

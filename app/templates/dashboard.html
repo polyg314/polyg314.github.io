@@ -1,0 +1,56 @@
+<div class="page-content-wrapper">
+		<div class="page-content" style="padding-top: 0px">
+			<!-- BEGIN PAGE CONTENT INNER -->
+			<div class="row">
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="zone in zones" ng-controller="DashboardCtrl">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light dashboard"  style="{{ zonesObject[zone.id]['hoverStyle'] }}" ng-mouseenter="hoverOn(zone.id)" ng-mouseleave="hoverOff(zone.id)">
+						<div class="portlet-title" style="min-height: 35px">
+							<div class="caption caption-md">
+								<i class="icon-bar-chart theme-font-color hide"></i>
+								<a href="#"><span class="caption-subject theme-font-color bold uppercase dashboard-zone">{{zone.name}}</span></a>
+								&nbsp&nbsp<span class="caption-helper">
+<!-- 								<a href="#" class="dashboardPortletButtons">
+								<i class="fa fa-pencil"></i> Edit </a> &nbsp
+								<a href="#" class="dashboardPortletButtons">
+								<i class="fa fa-folder-open"></i> Details </a> -->
+								</span>
+							</div>
+							<div class="inputs">
+								<span class="item-status">
+									<div class="dashboard-status" tooltip-placement="bottom" tooltip="{{ zoneTooltipText(zone.id) }}" style="{{ zoneStatusColor(zone.id) }}"></div>
+								</span>
+							</div>
+						</div>
+						<div class="portlet-body" style="padding-top: 0px">
+							<div class="scroller" style="height: 195px; margin-bottom: 10px" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+								<div class="general-item-list">
+									<div class="item" style="padding-top: 0px">
+										<div class="item-head dashboard-program-header">
+											<div class="item-details">
+												<a href="" class="item-name primary-link dashboard-program">{{ programsObject[zone.skedid]["name"] }}</a><br>
+												<span class="item-label">{{ programsObject[zone.skedid]["descr"] }}</span>
+											</div>
+										</div>
+										<div class="item-body pie-items">
+<!-- 											<h6 style="padding-top: 0px; margin-bottom: -10px">Current Spectral Output:</h6>
+ -->											<div class="pie-charts-div">
+											 <pie-chart data="zone.gauge_blue" class="dashboard-pies" options="zone.options"></pie-chart>
+											 <pie-chart data="zone.gauge_red" class="dashboard-pies" options="zone.options"></pie-chart>
+											 <pie-chart data="zone.gauge_white" class="dashboard-pies" options="zone.options"></pie-chart>
+											</div> 
+											<h6 class="blend-in">hi</h6>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<span class="dashboard-fixtures"><a href="" class="item-name primary-link">Fixtures:  </a> <span class="light-text-color">{{ getFixturesCount(zone.id) }}</span></span>
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+			</div>
+			<!-- END PAGE CONTENT INNER -->
+	</div>
+</div>

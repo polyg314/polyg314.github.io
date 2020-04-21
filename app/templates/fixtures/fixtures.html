@@ -1,0 +1,29 @@
+<div class="page-content-wrapper">
+	<div class="page-content" style="padding-top: 0px">
+		<div class="portlet light">
+			<div ng-controller="DatatablesCtrl as smartPAR">
+			    <table datatable="ng" dt-options="smartPAR.dtOptions" dt-column-defs="smartPAR.dtColumnDefs" class="hover table table-striped table-bordered" width="100%">
+			        <thead>
+			        <tr>
+			            <th>Name</th>
+			            <th>Status</th>
+			            <th>Serial Number</th>
+			            <th>Zone</th>
+			            <th  class="all">Manual Mode</th>
+			        </tr>
+			        </thead>
+			        <tbody>
+			        <tr ng-repeat="fixture in fixtures">
+			            <td>{{ fixture.name }}</td>
+			            <td>{{ fixture.rstate }}</td>
+			            <td>{{ fixture.serial_num }}</td>
+			            <td>{{ zonesObject[fixture.zoneid].name }}</td>
+			            <td><div switch-toggle class="on"></div></td>
+<!-- 			            <td> <input bs-switch ng-model="fixture.strobe" type="checkbox" ng-change="fixtureManual(fixture.id)"></td> -->
+			        </tr>
+			        </tbody>
+			    </table>
+			</div>
+		</div>
+	</div>
+</div>

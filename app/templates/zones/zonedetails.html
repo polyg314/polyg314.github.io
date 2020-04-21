@@ -1,0 +1,60 @@
+<div class="page-content-wrapper" ng-controller="ZoneCtrl">
+	<div class="page-content" style="padding-top: 0px">
+		<div class="portlet light">
+			<div class="col-xs-12 col-sm-6" style="padding-left: 0px">
+				<div class="info-item col-sm-12 col-xs-12">
+					<span class="zone-name col-sm-3">Name:</span> <input id="zone-name" class="non-editable editable-inputs zone-name col-sm-9" ng-class="{ 'input-editable' : editable }" value="{{zonesObject[zoneId].name}}" ng-readonly="!editable">
+					<br><br>
+					<span class="zone-details col-sm-3">Description:</span> <input id="zone-details" class="non-editable editable-inputs zone-details col-sm-9" ng-class="{ 'input-editable' : editable }" value="{{zonesObject[zoneId].descr}}" ng-readonly="!editable">
+				</div>
+				<div class="info-item col-sm-12 col-xs-12" style="margin-top: 10px; margin-bottom: 20px; height: 111px">
+					<span class="zone-program-dropdown col-sm-3">Program:</span> <select id="zone-program-dropdown" class="non-editable editable-inputs zone-program-dropdown col-sm-9" ng-class="{ 'input-editable' : editable }" ng-model="selectedProgram" ng-change="newZoneProgram(selectedProgram)" ng-disabled="!editable">
+						<option value="">{{programsObject[zonesObject[zoneId].skedid].name}}</option>
+						<option  ng-repeat="program in programs" ng-if="program.id != zonesObject[zoneId].skedid">{{program.name}}</option>
+					</select>
+					<br>
+					<span class="zone-program-details col-sm-3">Description: </span>
+					<h6 ng-show="zoneProgram" class="col-sm-9" style="display: inline-block; padding: 0px; margin-top: 3px" id="zone-program-details-new">{{zoneProgram.descr}}</h6>
+					<h6 ng-hide="zoneProgram" class="col-sm-9" style="display: inline-block; padding: 0px; margin-top: 3px" id="zone-program-details">{{programsObject[zonesObject[zoneId].skedid].descr}}</h6>
+				</div>
+			</div>
+			<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px; padding: 0px">
+				<button class="btn edit-button blue" ng-hide="editable" ng-click="allowEdit()"><i class="fa fa-pencil" ></i> <span class="edit-text">Edit</span></button>
+								
+				<button class="btn cancel-button yellow-lemon" ng-show="editable" ng-click="cancelEdit(programsObject[zonesObject[zoneId].skedid])"><i class="fa fa-undo" ></i> <span class="edit-text">Cancel</span></button>
+				<button class="btn delete-button red-flamingo" ng-show="editable" ng-click="deleteZone(zoneId)"><i class="fa fa-trash-o" ></i> <span class="edit-text">Delete</span></button>
+				<button class="btn save-button green-jungle" ng-show="editable" ng-click="saveEdit()"><i class="fa fa-save" ></i> <span class="edit-text">Save</span></button>
+
+			</div>
+			<div class="info-item col-sm-6 col-xs-12" style="height: 164px; margin-bottom: 20px">
+				<h4 style="margin-top: 0px">Current Spectral Output:</h4>
+					<pie-chart data="zonesObject[zoneId].gauge_blue" class="dashboard-pies zone-details-pies" options="zonesObject[zoneId].options"></pie-chart>
+					<pie-chart data="zonesObject[zoneId].gauge_red" class="dashboard-pies zone-details-pies" options="zonesObject[zoneId].options"></pie-chart>
+					<pie-chart data="zonesObject[zoneId].gauge_white" class="dashboard-pies zone-details-pies" options="zonesObject[zoneId].options"></pie-chart>
+			</div>
+
+			<div ng-controller="DatatablesCtrl as smartPAR">
+				<h3>Fixtures in {{zonesObject[zoneId].name}}:</h3> 
+			    <table datatable="ng" dt-options="smartPAR.dtOptions" dt-column-defs="smartPAR.dtColumnDefs" class="hover table table-striped table-bordered" width="100%">
+			        <thead>
+			        <tr>
+			            <th>Name</th>
+			            <th>Status</th>
+			            <th>Serial Number</th>
+			            <th  class="all">Manual Mode</th>
+			        </tr>
+			        </thead>
+			        <tbody>
+			        <tr ng-repeat="fixture in zoneFixtures[zoneId].fixtures">
+			            <td>{{ fixture.name }}</td>
+			            <td>{{ fixture.rstate }}</td>
+			            <td>{{ fixture.serial_num }}</td>
+			            <td><div switch-toggle class="on"></div></td>
+<!-- 			            <td> <input bs-switch ng-model="fixture.strobe" type="checkbox" ng-change="fixtureManual(fixture.id)"></td> -->
+			        </tr>
+			        </tbody>
+			    </table>
+			</div>
+		</div>
+	</div>
+</div>

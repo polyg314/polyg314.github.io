@@ -1,0 +1,99 @@
+
+.zone-name {
+	font-size: 30px;
+	padding: 0px
+}
+
+.zone-details {
+	font-size: 18px;
+	padding: 0px;
+}
+
+.zone-program-dropdown{
+	font-size: 16px;
+	padding: 0px;
+}
+
+.zone-program-details{
+	font-size: 16px;
+	padding: 0px;
+}
+
+#zone-name {
+	font-size: 30px;
+	background-color: hsla(220, 37%, 97%, 1);
+}
+
+#zone-details {
+	font-size: 18px;
+	background-color: hsla(220, 37%, 97%, 1);
+}
+
+#zone-program-dropdown{
+	font-size: 18px;
+	background-color: hsla(220, 37%, 97%, 1);
+}
+
+#zone-program-dropdown.non-editable {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	text-indent: 1px;
+	text-overflow: '';
+}
+
+#zone-program-details-new {
+	font-size: 16px;
+}
+
+#zone-program-details {
+	font-size: 16px;
+}	
+
+.info-item {
+	background-color: hsla(220, 37%, 97%, 1);
+	padding: 10px;
+	border-radius: 3px;
+}
+
+.edit-button{
+	float: right;
+}
+
+.save-button{
+	float: right;
+}
+
+.cancel-button{
+	float: right;
+}
+
+.delete-button{
+	float: right;
+}
+
+
+.input-editable{
+	background-color: white !important;
+/*	border: 1px solid red;*/
+	border-radius: 3px;
+	padding-left: 3px;
+	color: blue !important;
+}
+
+input{
+	transition: background-color 2s ease;
+	transition: border 2s ease;
+	transition: padding-left .5s ease;
+}
+
+
+button{
+	transition: display 1s ease;
+}
+
+.zone-details-pies svg{
+	zoom: 62% !	important;
+    -moz-transform: scale(0.62, 0.62);
+    margin-left: -45% !important;
+    margin-top: 40px !important;
+}

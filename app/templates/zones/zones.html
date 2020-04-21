@@ -1,0 +1,30 @@
+<div class="page-content-wrapper">
+	<div class="page-content" style="padding-top: 0px">
+		<div class="portlet light">
+			<div ng-controller="DatatablesCtrl as smartPAR">
+			    <table datatable="ng" dt-options="smartPAR.dtOptions" dt-column-defs="smartPAR.dtColumnDefs" class="hover table table-striped table-bordered" width="100%">
+			        <thead>
+			        <tr>
+			            <th class="all">Name</th>
+			            <th>Program</th>			            
+			            <th>Spectral Output</th>
+			            <th>Fixtures</th>
+			            <th class="all">View Mode</th>
+			            <th class="all">Sleep Mode</th>
+			        </tr>
+			        </thead>
+			        <tbody>
+			        <tr ng-repeat="zone in zones">
+			            <td><a ui-sref= "main.zonedetails({ zoneId: zone.id })">{{ zone.name }}</a></td>
+			            <td>{{ programsObject[zone.skedid]["name"] }}</td>
+			            <td> red: {{ zone.red }}% blue: {{ zone.blue }}% white: {{ zone.white }}%</td>
+			            <td>{{ getFixturesCount(zone.id) }}</td>
+			            <td><div switch-toggle class="on"></div></td>
+			            <td><div switch-toggle class="on"></div></td>
+			        </tr>
+			        </tbody>
+			    </table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+<div class="page-content-wrapper">
+	<div class="page-content" style="padding-top: 0px">
+		<div class="portlet light">
+			<div ng-controller="DatatablesCtrl as smartPAR">
+			    <table datatable="ng" dt-options="smartPAR.dtOptions" dt-column-defs="smartPAR.dtColumnDefs" class="hover table table-striped table-bordered" width="100%">
+			        <thead>
+			        <tr>
+			            <th>Name</th>
+			            <th>Description</th>
+			            <th>Zones</th>
+			        </tr>
+			        </thead>
+			        <tbody>
+			        <tr ng-repeat="program in programs">
+			            <td>{{ program.name }}</td>
+			            <td>{{ program.descr }}</td>
+			            <td>{{ getZones(program.id) }}</td>
+			        </tr>
+			        </tbody>
+			    </table>
+			</div>
+		</div>
+	</div>
+</div>

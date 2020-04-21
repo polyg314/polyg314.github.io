@@ -1,0 +1,49 @@
+<!-- <body class="page-md login"> -->
+<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+<!-- END SIDEBAR TOGGLER BUTTON -->
+<!-- BEGIN LOGO -->
+
+
+<div class="col-sm-2 col-md-4"></div>
+	<!-- END LOGO -->
+<div id="login-container" class="col-sm-8 col-md-4">
+
+<div class="logo" id="login-logo">
+	<a href="index.html">
+	<img src="app/assets/img/sidebar_logo.png" alt=""/>
+	</a>
+</div>
+	<!-- BEGIN LOGIN -->
+	<div class="content" >
+		<!-- BEGIN LOGIN FORM -->
+		<form class="login-form" ng-controller="LoginCtrl" ng-submit="submit()" ng-enter="submit()">
+			<h3 class="form-title">Sign In</h3>
+			<div class="alert alert-danger display-hide">
+				<button class="close" data-close="alert"></button>
+				<span>
+				Enter any username and password. </span>
+			</div>
+			<div class="form-group">
+				<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+				<label class="control-label visible-ie8 visible-ie9">Username</label>
+				<input autofocus class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" ng-model="username"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label visible-ie8 visible-ie9">Password</label>
+				<input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" ng-model="password"/>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn uppercase" id="login-button">Login</button>
+				<label class="rememberme check"></label>
+	<!-- 			<input type="checkbox" name="remember" value="1"/>Remember </label> -->
+				<a href="#" id="forget-password" class="forget-password">Forgot Password?</a>
+			</div>
+		</form>
+		<!-- END LOGIN FORM -->
+	</div>
+</div>
+<div class="copyright" style="position: fixed; bottom: 0px; left: 0px">
+	 2015 © LumiGrow. SmartPAR.
+</div>
+<!-- END LOGIN -->
+<!-- </body> -->
